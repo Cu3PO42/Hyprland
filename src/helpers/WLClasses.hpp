@@ -127,7 +127,8 @@ struct SKeyboard {
     bool               active    = false;
     bool               enabled   = true;
 
-    xkb_layout_index_t activeLayout = 0;
+    xkb_layout_index_t activeLayout        = 0;
+    xkb_state*         xkbTranslationState = nullptr;
 
     std::string        name        = "";
     std::string        xkbFilePath = "";

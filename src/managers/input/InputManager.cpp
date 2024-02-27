@@ -908,6 +908,11 @@ void CInputManager::applyConfigToKeyboard(SKeyboard* pKeyboard) {
         KEYMAP = xkb_keymap_new_from_names(CONTEXT, &rules, XKB_KEYMAP_COMPILE_NO_FLAGS);
     }
 
+    if (pKeyboard->xkbTranslationState) {
+        xkb_state_unref(pKeyboard->xkbTranslationState);
+    }
+    pKeyboard->xkbTranslationState = xkb_state_new(KEYMAP);
+
     wlr_keyboard_set_keymap(wlr_keyboard_from_input_device(pKeyboard->keyboard), KEYMAP);
 
     wlr_keyboard_modifiers wlrMods = {0};
