@@ -133,9 +133,10 @@ struct SKeyboard {
     std::string        xkbFilePath = "";
 
     SStringRuleNames   currentRules;
-    int                repeatRate  = 0;
-    int                repeatDelay = 0;
-    int                numlockOn   = -1;
+    int                repeatRate        = 0;
+    int                repeatDelay       = 0;
+    int                numlockOn         = -1;
+    bool               resolveBindsBySim = false;
 
     // For the list lookup
     bool operator==(const SKeyboard& rhs) const {
