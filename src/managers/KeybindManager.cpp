@@ -514,6 +514,9 @@ bool CKeybindManager::handleKeybinds(const uint32_t modmask, const SPressedKeyWi
         } else if (k.keycode != 0) {
             if (key.keycode != k.keycode)
                 continue;
+        } else if (k.catchAll) {
+            if (found)
+                continue;
         } else {
             // oMg such performance hit!!11!
             // this little maneouver is gonna cost us 4µs

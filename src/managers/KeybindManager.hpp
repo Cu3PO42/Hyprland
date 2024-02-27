@@ -24,6 +24,7 @@ struct SKeybind {
     bool        nonConsuming = false;
     bool        transparent  = false;
     bool        ignoreMods   = false;
+    bool        catchAll     = false;
 
     // DO NOT INITIALIZE
     bool shadowed = false;

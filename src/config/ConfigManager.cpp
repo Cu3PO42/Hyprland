@@ -1822,6 +1822,8 @@ std::optional<std::string> CConfigManager::handleBind(const std::string& command
         else if (KEY.starts_with("code:") && isNumber(KEY.substr(5)))
             g_pKeybindManager->addKeybind(
                 SKeybind{"", std::stoi(KEY.substr(5)), MOD, HANDLER, COMMAND, locked, m_szCurrentSubmap, release, repeat, mouse, nonConsuming, transparent, ignoreMods});
+        else if (KEY == "all")
+            g_pKeybindManager->addKeybind(SKeybind{"", 0, MOD, HANDLER, COMMAND, locked, m_szCurrentSubmap, release, repeat, mouse, nonConsuming, transparent, ignoreMods, true});
         else
             g_pKeybindManager->addKeybind(SKeybind{KEY, 0, MOD, HANDLER, COMMAND, locked, m_szCurrentSubmap, release, repeat, mouse, nonConsuming, transparent, ignoreMods});
     }
